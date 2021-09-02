@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block content %} {{ super() }}
+
+<h2>Список задач</h2>
+<!-- Коллекцию posts передаем из flsite.py - posts=dbase.getPostsAnonce()-->
+<table class="table table-striped table-hover">
+  <thead class="table-info">
+    <tr>
+      <th scope="col">№</th>
+      <th scope="col">Наименование</th>
+      <th scope="col">Описание</th>
+      <th scope="col">Дата создания</th>
+      <th scope="col">Действие</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in posts %}
+    <tr>
+      <th scope="row">{{loop.index}}</th>
+      <td>
+        <a href="{{ url_for('showPost', id_post=p.id)}}">{{p.subject}}</a>
+      </td>
+      <td>{{ p.description[:50]}}...</td>
+      <td>
+        <!--            Шаблон фильтра отображения даты-->
+        {{p.creation_date | ctime }}
+      </td>
+      <td>
+        <a
+          href="{{ url_for('showPost', id_post=p.id)}}/takeDocWorkTake"
+          class="btn btn-danger"
+        >
+          Взять в работу
+        </a>
+        <a href="{{ url_for('showPost', id_post=p.id)}}" class="btn btn-info">
+          Посмотреть
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

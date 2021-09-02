@@ -1,0 +1,44 @@
+html, body {
+    font-family: 'Arial';
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    color: #0059b2;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#CC0000;
+    text-decoration: underline;
+}
+
+.clear {
+    clear:both;
+}
+
+ul.mainmenu {
+    list-style: none;
+    background: #3F4137;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    color: #fdc073;
+    font-size: 20px;
+    overflow: hedden;
+}
+
+.flash {
+    padding: 10px;
+}
+.flash.success {
+    border: 1px solid #21db56;
+    background: #aeffc5;
+}
+.flash.error {
+    border: 1px solid #FF4343;
+    background: #FF9C9C;
+}

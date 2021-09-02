@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }} <!-- Отображаем то, что было в базовом шаблоне -->
+<!-- 
+    Функция вывода сообщений пользователю. Если будет несколько, 
+    то итерактивно выведутся все.
+    get_flashed_messages() - добавить True, чтобы выводился в формате cat, msg
+-->
+<form action="/login" method="POST" class="form-contact">
+    <p><label for="">Имя: </label><input type="text" name="username" value="" required></p>
+    <p><label for="">Пароль: </label><input type="password" name="psw" value="" required></p>
+    <p><input type="submit" value="Войти"></p>
+</form>
+
+
+{% endblock %}

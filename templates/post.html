@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+{{ post }}
+<form method="POST" class="form-contact">
+<select name="select_status">
+    {% for s in menu%}
+    {% if status_post_id == s['id'] %}
+    <option selected="{{status_post_id}}" value="{{s.id}}">{{s.name}}</option>
+    {% else %}
+    <option value="{{s.id}}">{{s.name}}</option>
+    {% endif %}
+    {% endfor %}
+</select>
+    <p><input type="submit" value="Изменить статус"></p>
+</form>
+<a href="{{ url_for('showPost', id_post=task_id)}}/takeDocWorkTake" class="btn btn-danger">Изменить статус</a>
+
+
+{% endblock %}
